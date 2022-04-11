@@ -32,4 +32,4 @@ Adding a followers feature will be something that we would like to add with exte
   https://drive.google.com/file/d/1Dt3yY5ZHa4_QI0t-KSmZpx3zfa1Cf9ix/view?usp=sharing
 
 ## Wireframes
-  > Link your wireframes.
+  https://www.figma.com/file/REjh2QQkSSUaldub5qFFyr/Untitled?node-id=0%3A1
