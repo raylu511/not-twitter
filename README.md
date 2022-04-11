@@ -29,7 +29,7 @@ Authenthicating the users will likely be the most challenging technical hurdle.
 Adding a followers feature will be something that we would like to add with extended time (if we're not able to).
 
 ## ERD Diagram
-  > Link your ERD diagram. 
+  https://drive.google.com/file/d/1Dt3yY5ZHa4_QI0t-KSmZpx3zfa1Cf9ix/view?usp=sharing
 
 ## Wireframes
   > Link your wireframes.
