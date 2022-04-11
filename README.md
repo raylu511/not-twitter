@@ -10,9 +10,7 @@ We are building a social media app which targets the youth. Users can post whate
 This app is for anyone, and is a way to interact with users by sharing what is on their mind.
 
 ## Summary ##
-
-
-  > Give a summary of the product and the benefit. What are all the things a user can do when use your product? This is the most important section for your readers, so make this paragraph good.  (5+ sentences)
+Not twitter is a social media account that allows you to post whatever you want to the world. You can log in and make these posts and see other users' posts ordered by when they were made. A user can like and comment on another user's post. You can also see other people who have liked and commented on a post. Not twitter allows you to connect with people from anywhere virtually.
 
 ## Problem ##
 
