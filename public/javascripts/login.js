@@ -1,10 +1,10 @@
-const form = document.getElementById('register');
+const form = document.getElementById('login')
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault()
+form.addEventListener('submit', async(e) => {
+    e.preventDefault();
     const username = document.getElementById('userName').value;
     const password = document.getElementById('pwd').value;
-    const response = await fetch('/register', {
+    const response = await fetch('/login', {
         method: 'POST', // include, *same-origin, omit
         headers: {
           'Content-Type': 'application/json'
@@ -13,9 +13,7 @@ form.addEventListener('submit', async (e) => {
         body: JSON.stringify({username, password}),
     });
     const data = await response.json();
-    if(data.name === 'error') {
-        console.log('Nope')
-    } else {
-        location.assign('/');
-    } 
+    if (data === true) {
+      location.assign('/')
+    }
 })
