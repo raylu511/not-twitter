@@ -3,6 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 const authRouter = require('./routes/authRoute');
+const userRouter = require('./routes/userRoutes');
 const port = process.env.PORT || 3000;
 
 // view engine setup
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(authRouter);
+app.use('/users', userRouter);
 
 app.get('/', (req, res) => {
   res.render("home")
