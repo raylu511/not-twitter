@@ -15,6 +15,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   res.render("home")
 })
+app.get('/register', (req,res) => {
+  res.render("register")
+})
+app.get('/login', (req,res) => {
+  res.render("login")
+})
+
 
 app.listen(port, ()=> {
   console.log(port)
