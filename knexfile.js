@@ -10,14 +10,18 @@ module.exports = {
     connection: {
       database: 'not_twitter',
       user:     'postgres',
-      password: '1123'
+      password: '@NewYork1788'
     },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      tableName: 'knex_migrations',
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds'
     }
   },
 
