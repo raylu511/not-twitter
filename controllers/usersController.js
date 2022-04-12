@@ -4,13 +4,13 @@ const bcrypt = require("bcryptjs");
 class UsersContoller {
   static async getUsers(req, res) {
     const users = await UserModel.getUsersFromDB();
-    res.send(users);
+    res.status(200).send(users);
   }
 
   static async getSingleUser(req, res) {
     const id = req.params.id;
     const user = await UserModel.getSingleUserFromDB(id);
-    res.send(user);
+    res.status(200).send(user);
   }
 
   static async createUser(req, res) {
@@ -31,7 +31,7 @@ class UsersContoller {
   }
   static async deleteUser(req, res) {
     const id = req.params.id;
-    const deletedUser = await userModel.deleteUserFromDB(id);
+    const deletedUser = await UserModel.deleteUserFromDB(id);
     if (deletedUser.length === 0) {
       return res.status(404).send("User not found");
     } else {
