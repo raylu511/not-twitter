@@ -16,6 +16,5 @@ exports.seed = async function(knex) {
     {user_id: "1", body: `Shawn's Blog`},
     {user_id: "2", body: `Jarae's Blog`},
     {user_id: "3", body: `Ray's Blog`},
-   
   ]);
 };

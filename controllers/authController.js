@@ -1,3 +1,5 @@
+const UserModel = require("../models/usersModel");
+
 class AuthController {
   static getLoginPage(req, res) {
     return res.render("login");
@@ -5,11 +7,21 @@ class AuthController {
   static getRegisterPage(req, res) {
     return res.render("register");
   }
-  static validateLogin(req, res) {
-    return res.send("Post Login");
+  static async validateLogin(req, res) {
+    try{
+      const user = await UserModel.getUserFromDBByUsername(req.body.username)
+    } catch (err) {
+
+    }
   }
-  static validateRegister(req, res) {
-    
+  static async validateRegister(req, res) {
+    try {
+      const { username, password } = req.body;
+      const newUser = await UserModel.createUserFromDB(username, password);
+      res.send(newUser);
+    } catch (err){
+      res.status(403).send(err);
+    }
   }
 }
 
