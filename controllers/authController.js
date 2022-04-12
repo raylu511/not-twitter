@@ -9,7 +9,7 @@ class AuthController {
     return res.send("Post Login");
   }
   static validateRegister(req, res) {
-    return res.send("Register Post");
+    
   }
 }
 

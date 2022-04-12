@@ -1,25 +1,36 @@
-const db = require('../db/db')
+const db = require("../db/db");
 
 class UserModel {
-    static getUsersFromDB(){
-        return db.select().from('users')
-    }
+  static getUsersFromDB() {
+    return db.select().from("users");
+  }
 
-    static getSingleUserFromDB(id){
-        return db.select().from('users').where({id})
-    }
+  static getSingleUserFromDB(id) {
+    return db.select().from("users").where({ id });
+  }
 
-    static createUserFromDB(){
+  static createUserFromDB(username, password) {
+    return db("users")
+      .insert({ username, password })
+      .returning(["id", "username", "password", "created_at", "updated_at"]);
+  }
+  static updateUserFromDB(id, username) {
+    return db("users")
+      .update("username", username)
+      .update("updated_at", getCurrentDateJson())
+      .where("id", id)
+      .returning(["id", "username", "password", "created_at", "updated_at"]);
+  }
+  static deleteUserFromDB(id) {
+    return db("users")
+      .delete()
+      .where({ id })
+      .returning(["id", "username", "password", "created_at", "updated_at"]);
+  }
+}
 
-    }
-
-    static updateUserFromDB(){
-
-    }
-
-    static deleteUserFromDB(){
-
-    }
+function getCurrentDateJson() {
+  return new Date().toJSON();
 }
 
 module.exports = UserModel;
