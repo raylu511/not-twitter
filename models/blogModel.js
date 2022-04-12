@@ -17,4 +17,4 @@ class BlogModel {
         
     }
 }
-module.exports = BlogModel
+module.exports = BlogModel;

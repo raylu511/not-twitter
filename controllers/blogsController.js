@@ -10,16 +10,19 @@ class BlogsController {
         const blog = await blogModel.getSingleBlogFromDB(id)
         res.send(blog)
     }
-    static updateBlog (){
-        
+    static async updateBlog (req, res){
+        res.send('hello')
+
     }
-    static deleteBlogs (){
-        
+    static deleteBlog (req, res){
+        res.send('hello')
+
     }
-    static createBlogs (){
-        
+    static createBlog (req, res){
+        res.send('hello')
+
     }
 
 }
 
-module.export = BlogsController
+module.exports = BlogsController
