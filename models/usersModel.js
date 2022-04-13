@@ -2,7 +2,7 @@ const db = require("../db/db");
 
 class UserModel {
   static getUsersFromDB() {
-    return db.select().from("users");
+    return db.select().from("users").orderBy("id");
   }
   static getUserFromDBByUsername(username) {
     return db.select().from("users").where({ username: username});

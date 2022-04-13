@@ -33,7 +33,7 @@ class BlogsController {
   }
   static async createBlog(req, res) {
     const { userId, body } = req.body;
-    const newBlog = await blogModel.createBlogsFromDB(userId, body);
+    const newBlog = await blogModel.createBlogFromDB(userId, body);
     return res.send(newBlog);
   }
 }

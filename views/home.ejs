@@ -21,7 +21,7 @@
     <% } %>
 
     <% if(authenticated) { %>
-      <% blogs.forEach(blog => { %>
+      <% blogs.forEach((blog, index) => { %>
         <%- include("partials/blogs", {blog}) %>
         <% })%>
     <%} else { %>

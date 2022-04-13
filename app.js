@@ -29,12 +29,13 @@ app.use("/blogs", blogRouter);
 app.get("/", async (req, res) => {
   // if the user is authenticated
   const blogs = await blogModel.getBlogsFromDB();
+  const users = await userModel.getUsersFromDB();
   const token = req.cookies.access_token;
   if (!token) {
     return res.render("home", {authenticated: false});
   }
   const data = jwt.verify(token, "Your_Secret_Key");
-  res.render("home", { blogs, authenticated: true });
+  res.render("home", { blogs, users, authenticated: true });
 });
 
 app.listen(port, () => {
