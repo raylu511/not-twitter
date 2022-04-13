@@ -1,26 +1,16 @@
-const commentsModel = require('../models/blogModel');
+const commentsModel = require('../models/commentsModel');
 
 class CommentsController {
-    static async getBlogs (req, res){
-        const comment = await commentsModel.getCommentsFromDB()
-        res.send(comment)
+    static async getCommentsOfBlog(req, res) {
+        const blogId = req.params.id;
+        const comments = await commentsModel.getCommentsOfBlogFromDB(blogId);
+        return res.send(comments)
     }
-    static async getSingleBlog (req, res){
-        const id = req.params.id;
-        const comment = await commentsModel.getSingleCommentFromDB(id)
-        res.send(comment)
-    }
-    static async updateBlog (req, res){
-        res.send('hello')
-
-    }
-    static deleteBlog (req, res){
-        res.send('hello')
-
-    }
-    static createBlog (req, res){
-        res.send('hello')
-
+    static async createCommentOfBlog(req,res) {
+        const {userId, text} = req.body;
+        const blogId = req.params.id;
+        const comment = await commentsModel.createCommentOfBlogFromDB(blogId, userId, text);
+        return res.send(comment)
     }
 
 }

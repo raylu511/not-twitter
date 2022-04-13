@@ -2,7 +2,7 @@ const db = require('../db/db')
 
 class BlogModel {
     static getBlogsFromDB (){
-        return db.select().from('blogs')
+        return db.select().from('blogs').orderBy("created_at", "desc");
     }
     static getSingleBlogFromDB (id){
         return db.select().from('blogs').where({id})
@@ -13,8 +13,8 @@ class BlogModel {
     static deleteBlogsFromDB (){
         
     }
-    static createBlogsFromDB (){
-        
+    static createBlogsFromDB (user_id, body){
+        return db("blogs").insert({body, user_id}).returning(["id", "body"]);
     }
 }
 module.exports = BlogModel;

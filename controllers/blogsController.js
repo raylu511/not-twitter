@@ -14,13 +14,14 @@ class BlogsController {
         res.send('hello')
 
     }
-    static deleteBlog (req, res){
+    static async deleteBlog (req, res){
         res.send('hello')
 
     }
-    static createBlog (req, res){
-        res.send('hello')
-
+    static async createBlog (req, res){
+        const {userId, body} = req.body;
+        const newBlog = await blogModel.createBlogsFromDB(userId, body);
+        return res.send(newBlog)
     }
 
 }

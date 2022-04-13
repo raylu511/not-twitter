@@ -1,20 +1,13 @@
 const db = require('../db/db')
 
 class CommentsModel {
-    static getCommentsFromDB (){
-        return db.select().from('comments')
+    static getCommentsOfBlogFromDB (blog_id){
+        return db.select().from('comments').where({blog_id}).orderBy('created_at')
     }
-    static getSingleCommentFromDB (id){
-        return db.select().from('comments').where({id})
-    }
-    static updateCommentsFromDB (){
-        
-    }
-    static deleteCommentsFromDB (){
-        
-    }
-    static createBCommentsFromDB (){
-        
+    static createCommentOfBlogFromDB (blog_id, user_id, comment_text) {
+        return db("comments")
+        .insert({blog_id, user_id, comment_text})
+        .returning(["id", "comment_text"]);
     }
 }
 module.exports = CommentsModel;
