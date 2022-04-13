@@ -10,20 +10,23 @@ class AuthController {
     return res.render("register");
   }
   static async validateLogin(req, res) {
-    
       const { username, password } = req.body;
       const user = await UserModel.getUserFromDBByUsername(username);
-      console.log(password, user[0].password);
+      if (!user[0]) {
+        return res.status(404).send('Nope')
+      }
       const validate = await bcrypt.compare(password, user[0].password);
       if (!validate) {
-        throw new Error("Invalid credential");
+        return res.status(401).send('Nope')
       }
-      const token = jwt.sign(user, "YOUR_SECRET_KEY");
+      const token = jwt.sign(user[0], "Your_Secret_Key");
       return res
-        .cookie("access_token", token)
-        .status(200)
-        .json({ message: "Logged in successfully 😊 👌" });
-    
+    .cookie("access_token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    })
+    .status(200)
+    .json({ message: "Logged in successfully 😊 👌" });
   }
   static async validateRegister(req, res) {
     try {

@@ -12,7 +12,7 @@ class CommentsController {
         const comment = await commentsModel.createCommentOfBlogFromDB(blogId, userId, text);
         return res.send(comment)
     }
-
+    
 }
 
 module.exports = CommentsController

@@ -13,14 +13,19 @@
       crossorigin="anonymous"
     />
   </head>
-  <%- include("partials/navbar") %>
+  <% if(!authenticated) { %>
+      <%- include("partials/navbar") %>
+  <%} else { %>
+  <%- include("partials/navbarsignedin") %>
+  <% } %>
+      
   <body>
-    <% if(blogs) { %>
+    <% if(authenticated) { %>
       <% blogs.forEach(blog => { %>
         <%- include("partials/blogs", {blog}) %>
         <% })%>
+    <%} else { %>
+    <%- include("partials/notLoggedIn") %>
     <% } %>
-    
-    <!-- <%- include("partials/notLoggedIn") %> -->
   </body>
 </html>

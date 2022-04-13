@@ -5,7 +5,7 @@ class UserModel {
     return db.select().from("users");
   }
   static getUserFromDBByUsername(username) {
-    return db.select().from("users").where({ username });
+    return db.select().from("users").where({ username: username});
   }
   static getSingleUserFromDB(id) {
     return db.select().from("users").where({ id });

@@ -4,13 +4,15 @@ form.addEventListener('submit', async(e) => {
     e.preventDefault();
     const username = document.getElementById('userName').value;
     const password = document.getElementById('pwd').value;
-    fetch('/login', {
+    const response = await fetch('/login', {
         method: 'POST', // include, *same-origin, omit
         headers: {
           'Content-Type': 'application/json'
-          // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-        mode: 'no-cors',
-        body: JSON.stringify({username, password}),
-    }).then(response => console.log(response))
-})
+        body: JSON.stringify({username: username, password: password}),
+    })
+    const data = await response.json();
+    if(data.message) {
+      location.assign('/');
+    }
+  })
