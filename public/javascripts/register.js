@@ -13,9 +13,9 @@ form.addEventListener('submit', async (e) => {
         body: JSON.stringify({username, password}),
     });
     const data = await response.json();
-    if(data.name === 'error') {
-        console.log('Nope')
+    if (data.name) {
+      console.log("Username exists")
     } else {
-        location.assign('/');
-    } 
+      location.assign('/login');
+    }
 })
