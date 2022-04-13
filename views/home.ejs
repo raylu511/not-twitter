@@ -12,20 +12,20 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-  </head>
-  <% if(!authenticated) { %>
-      <%- include("partials/navbar") %>
-  <%} else { %>
-  <%- include("partials/navbarsignedin") %>
-  <% } %>
-      
+  </head>    
   <body>
+    <% if(!authenticated) { %>
+      <%- include("partials/navbar") %>
+    <%} else { %>
+      <%- include("partials/navbarsignedin") %>
+    <% } %>
+
     <% if(authenticated) { %>
       <% blogs.forEach(blog => { %>
         <%- include("partials/blogs", {blog}) %>
         <% })%>
     <%} else { %>
-    <%- include("partials/notLoggedIn") %>
+      <%- include("partials/notLoggedIn") %>
     <% } %>
   </body>
 </html>
