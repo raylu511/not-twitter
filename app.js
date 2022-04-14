@@ -35,7 +35,7 @@ app.get("/", async (req, res) => {
     return res.render("home", {authenticated: false});
   }
   const data = jwt.verify(token, "Your_Secret_Key");
-  res.render("home", { blogs, users, authenticated: true });
+  res.render("home", { blogs, users, authenticated: true, data});
 });
 
 app.listen(port, () => {
