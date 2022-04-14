@@ -5,7 +5,7 @@ class BlogModel {
     return db.select().from("blogs").orderBy("created_at", "desc");
   }
   static getSingleBlogFromDB(id) {
-    return db.select().from("blogs").where({ id });
+    return db.select().from("blogs").where({ id })
   }
   static updateBlogFromDB(id, body) {
     return db("blogs")
