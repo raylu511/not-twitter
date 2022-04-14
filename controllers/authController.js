@@ -38,6 +38,12 @@ class AuthController {
       res.status(403).send(err);
     }
   }
+  static async signOut(req,res) {
+    return res
+      .clearCookie("access_token")
+      .status(200)
+      .redirect('/')
+  };
 }
 
 module.exports = AuthController;
