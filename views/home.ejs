@@ -24,9 +24,11 @@
       <% blogs.forEach((blog, index) => { %>
         <%- include("partials/blogs", {blog}) %>
         <% })%>
-    <%} else { %>
+        <%- include("partials/newBlog", {blog}) %>
+    <%} else { %> 
       <%- include("partials/notLoggedIn") %>
     <% } %>
+
     <script src="javascripts/home.js"></script>
   </body>
 </html>
