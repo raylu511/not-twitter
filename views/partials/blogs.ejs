@@ -43,11 +43,11 @@
               src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
               width="40"
             /><textarea
-              class="form-control ml-1 shadow-none textarea"
+              id="textArea<%= blog.id %>" class="form-control ml-1 shadow-none textarea"
             ></textarea>
           </div>
           <div class="mt-2 text-right">
-            <button class="btn btn-primary btn-sm shadow-none" type="button">
+            <button id="btn_<%= blog.id %>" class="btn btn-primary btn-sm shadow-none textAreaBtn" type="button">
               Post comment
             </button>
             <button
