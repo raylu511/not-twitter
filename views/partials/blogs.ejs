@@ -10,9 +10,9 @@
             <img
               class="rounded-circle"
               src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
-              width="50"
+              width="65" height="65"
             />
-            <div class="d-flex flex-column justify-content-start ml-2">
+            <div class="d-flex flex-column justify-content-start p-3">
               <span class="d-block font-weight-bold name"
                 ><%= users.find(user => user.id ===
                 blog.user_id).username%></span
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div id="comments<%= blog.id %>">
-          <h4 class="">Comments</h1>
+          <h4 class="mt-3">Comments</h1>
         </div>
         <div class="bg-light p-2">
           <div class="d-flex flex-row align-items-start">
@@ -43,7 +43,7 @@
               src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
               width="40"
             /><textarea
-              id="textArea<%= blog.id %>" class="form-control ml-1 shadow-none textarea"
+              id="textArea<%= blog.id %>" class="form-control ml-1 shadow-none textarea mt-5 mb-3"
             ></textarea>
           </div>
           <div class="mt-2 text-right">
