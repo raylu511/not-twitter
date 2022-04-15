@@ -24,7 +24,7 @@
       <% blogs.forEach((blog, index) => { %>
         <%- include("partials/blogs", {blog}) %>
         <% })%>
-        <%- include("partials/newBlog", {blog}) %>
+        <%- include("partials/newBlog") %>
     <%} else { %> 
       <%- include("partials/notLoggedIn") %>
     <% } %>

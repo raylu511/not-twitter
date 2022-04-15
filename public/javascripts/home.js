@@ -45,7 +45,15 @@ for (let button of textAreaBtns) {
     }
   });
 }
-//remove all blogs that dont have the id
+
+const newPost = document.getElementById("newPost")
+const modalwindow = document.getElementById("modalwindow")
+
+newPost.addEventListener( "click", () => {
+  modalwindow.style.display = "block";
+  console.log("clicked")
+})
+//remove all blogs that dont have the id style="display:none"
 
 //when we cllick onna blog we want to show only that blog an all of its comments
 
