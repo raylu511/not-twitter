@@ -1,3 +1,4 @@
+
 const blogs = document.getElementsByClassName("blog");
 for (let blog of blogs) {
   fetch(`http://localhost:3000/blogs/${blog.id}/comments`)
@@ -46,13 +47,35 @@ for (let button of textAreaBtns) {
   });
 }
 
-const newPost = document.getElementById("newPost")
-const modalwindow = document.getElementById("modalwindow")
 
-newPost.addEventListener( "click", () => {
-  modalwindow.style.display = "block";
-  console.log("clicked")
+//get the text inside the submit form 
+//add new post to home page 
+//grab text and put it inside data base using post fetch
+
+const textAreaForNewBlog = document.getElementById("textAreaForNewBlog")
+const postButton = document.getElementById("postButton")
+const userId = document.getElementById("user_id").innerText;
+postButton.addEventListener("click", () =>{
+  if(textAreaForNewBlog.value !== ''){
+    fetch(`http://localhost:3000/blogs`, {
+      method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify({ 
+          userId: userId, 
+          body: textAreaForNewBlog.value })
+        })
+        .then (res => res.json())
+        .then (data => {
+          location.assign('/')})
+  }
 })
+
+
+
+
 //remove all blogs that dont have the id style="display:none"
 
 //when we cllick onna blog we want to show only that blog an all of its comments
