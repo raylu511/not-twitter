@@ -13,11 +13,11 @@ class AuthController {
       const { username, password } = req.body;
       const user = await UserModel.getUserFromDBByUsername(username);
       if (!user[0]) {
-        return res.status(404).send('Nope')
+        return res.status(404).json('Username not found')
       }
       const validate = await bcrypt.compare(password, user[0].password);
       if (!validate) {
-        return res.status(401).send('Nope')
+        return res.status(404).json('Invalid password')
       }
       const token = jwt.sign(user[0], "Your_Secret_Key");
       return res
