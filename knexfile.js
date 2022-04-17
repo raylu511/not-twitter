@@ -10,7 +10,7 @@ module.exports = {
     connection: {
       database: 'not_twitter',
       user:     'postgres',
-      password: '@NewYork1788'
+      password: '1123'
     },
     pool: {
       min: 2,
@@ -26,19 +26,21 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: "pg",
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false }
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations'
+      directory: "./db/migrations"
+    },
+    seeds: {
+      directory: "./db/seeds"
     }
-  }
+  },
 
 };

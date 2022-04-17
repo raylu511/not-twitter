@@ -23,16 +23,6 @@
             <p class="comment-text"><%= blog.body %></p>
           </div>
         </div>
-        <div class="bg-dark text-white">
-          <div class="d-flex flex-row fs-12">
-            <div class="like p-2 cursor">
-              <i class="fa fa-thumbs-o-up"></i><span class="ml-1">🤍</span>
-            </div>
-            <div class="like p-2 cursor">
-              <i class="fa fa-commenting-o"></i><span class="ml-1"> 💭</span>
-            </div>
-          </div>
-        </div>
         <div id="comments<%= blog.id %>">
           <h4 class="mt-3">Comments</h1>
         </div>
@@ -49,12 +39,6 @@
           <div class="mt-2 text-right">
             <button id="btn_<%= blog.id %>" class="btn btn-light btn-sm shadow-none textAreaBtn" type="button">
               Post comment
-            </button>
-            <button
-              class="btn btn-light btn-sm ml-1 shadow-none"
-              type="button"
-            >
-              Cancel
             </button>
           </div>
         </div>
