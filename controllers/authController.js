@@ -29,13 +29,13 @@ class AuthController {
     .json({ message: "Logged in successfully 😊 👌" });
   }
   static async validateRegister(req, res) {
+    const { username, password } = req.body;
+    const hashPassword = bcrypt.hashSync(password, 8);
     try {
-      const { username, password } = req.body;
-      const hashPassword = bcrypt.hashSync(password, 8);
       const newUser = await UserModel.createUserFromDB(username, hashPassword);
-      res.status(201).send(newUser);
-    } catch (err) {
-      res.status(403).send(err);
+      return res.status(201).json(newUser);
+    } catch(err) {
+      return res.status(404).json(err);
     }
   }
   static async signOut(req,res) {
