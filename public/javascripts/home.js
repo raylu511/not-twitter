@@ -1,7 +1,7 @@
 
 const blogs = document.getElementsByClassName("blog");
 for (let blog of blogs) {
-  fetch(`http://localhost:3000/blogs/${blog.id}/comments`)
+  fetch(`https://not-twitter-marcy-lab.herokuapp.com/blogs/${blog.id}/comments`)
     .then((res) => res.json())
     .then((data) => {
       const commentsDiv = document.getElementById(`comments${blog.id}`);
@@ -26,7 +26,7 @@ for (let button of textAreaBtns) {
     const username = document.getElementById("user_name").innerText;
     const userId = document.getElementById("user_id").innerText;
     if (textArea.value !== "") {
-      fetch(`http://localhost:3000/blogs/${buttonID}/comments`, {
+      fetch(`https://not-twitter-marcy-lab.herokuapp.com/blogs/${buttonID}/comments`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ const postButton = document.getElementById("postButton")
 const userId = document.getElementById("user_id").innerText;
 postButton.addEventListener("click", () =>{
   if(textAreaForNewBlog.value !== ''){
-    fetch(`http://localhost:3000/blogs`, {
+    fetch(`https://not-twitter-marcy-lab.herokuapp.com/blogs`, {
       method: "POST",
         headers: {
           'Content-Type': 'application/json'
