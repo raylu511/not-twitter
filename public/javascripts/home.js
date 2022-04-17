@@ -25,7 +25,6 @@ for (let button of textAreaBtns) {
     const commentsDiv = document.getElementById(`comments${buttonID}`);
     const username = document.getElementById("user_name").innerText;
     const userId = document.getElementById("user_id").innerText;
-    console.log(userId);
     if (textArea.value !== "") {
       fetch(`http://localhost:3000/blogs/${buttonID}/comments`, {
         method: "POST",
