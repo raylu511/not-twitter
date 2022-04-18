@@ -1,5 +1,3 @@
-
-
 const commentsModel = require('../models/commentsModel');
 
 class CommentsController {
@@ -11,6 +9,7 @@ class CommentsController {
     static async createCommentOfBlog(req,res) {
         const {userId, text} = req.body;
         const blogId = req.params.id;
+        console.log(req.body)
         const comment = await commentsModel.createCommentOfBlogFromDB(blogId, userId, text);
         return res.json(comment)
     }

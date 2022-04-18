@@ -1,7 +1,7 @@
-
+window.addEventListener('DOMContentLoaded', (event) => {
 const blogs = document.getElementsByClassName("blog");
 for (let blog of blogs) {
-  fetch(`https://not-twitter-marcy-lab.herokuapp.com/blogs/${blog.id}/comments`)
+  fetch(`blogs/${blog.id}/comments`)
     .then((res) => res.json())
     .then((data) => {
       const commentsDiv = document.getElementById(`comments${blog.id}`);
@@ -25,10 +25,12 @@ for (let button of textAreaBtns) {
     const commentsDiv = document.getElementById(`comments${buttonID}`);
     const username = document.getElementById("user_name").innerText;
     const userId = document.getElementById("user_id").innerText;
+    
     if (textArea.value !== "") {
-      fetch(`https://not-twitter-marcy-lab.herokuapp.com/blogs/${buttonID}/comments`, {
+      addCommentToDom(commentsDiv, username, textArea.value);
+      fetch(`/blogs/${buttonID}/comments`, {
         method: "POST",
-        mode: 'no-cors',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -39,8 +41,6 @@ for (let button of textAreaBtns) {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-          addCommentToDom(commentsDiv, username, textArea.value);
           textArea.value = "";
         });
     }
@@ -57,9 +57,9 @@ const postButton = document.getElementById("postButton")
 const userId = document.getElementById("user_id").innerText;
 postButton.addEventListener("click", () =>{
   if(textAreaForNewBlog.value !== ''){
-    fetch(`https://not-twitter-marcy-lab.herokuapp.com/blogs`, {
+    fetch(`/blogs`, {
       method: "POST",
-      mode: 'no-cors',
+      mode: 'cors',
         headers: {
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -73,7 +73,8 @@ postButton.addEventListener("click", () =>{
           location.assign('/')})
   }
 })
-
+  
+})
 
 
 
