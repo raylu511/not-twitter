@@ -1,8 +1,9 @@
 <!--Navbar-->
-<header class="container-fluid fixed-top">
-  <nav class="navbar navbar-expand-md navbar-light container">
+
+<header  style="background: #212529;" class="container-fluid fixed-top">
+  <nav   class="navbar navbar-expand-md navbar-light container">
     <a href="#" class="navbar-brand">
-      <a class="nav-link" href="">Welcome <span id="user_name"><%=data.username %></span> <span id="user_id"style="display:none"><%=data.id%></span></a>
+      <a class="nav-link" href="" style="color: white;" >Welcome <span id="user_name"><%=data.username %></span> <span id="user_id"style="display:none"><%=data.id%></span></a>
       </a>
     <button
       class="navbar-toggler"
@@ -17,14 +18,20 @@
     </button>
     <div class="collapse navbar-collapse" id="toggleMenu">
       <ul class="navbar-nav ms-auto text-center">
-        <li class="nav-item px-3"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item px-3">
-          <a class="btn nav-link" type="button" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Create Post</a>
+          <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link" href="/signout">Sign Out</a>
+          <a class="btn nav-link" href="#" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-lg btn-secondary fw-bold border-black" style="background:white; color: black"
+            >Create Post</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class=" btn nav-link" href="/signout" class="btn btn-lg btn-secondary fw-bold border-black" style="background:white; color: black"
+            >Sign Out</a>
         </li>
       </ul>
     </div>
   </nav>
 </header>
+
+
