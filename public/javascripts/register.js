@@ -16,6 +16,7 @@ form.addEventListener("submit", async (e) => {
   if (data.name) {
     const errorMessage = document.getElementById('error_message');
     errorMessage.style.display = 'block';
+    console.log(errorMessage)
   } else {
     location.assign("/login");
   }

@@ -28,6 +28,7 @@ for (let button of textAreaBtns) {
     if (textArea.value !== "") {
       fetch(`https://not-twitter-marcy-lab.herokuapp.com/blogs/${buttonID}/comments`, {
         method: "POST",
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -58,6 +59,7 @@ postButton.addEventListener("click", () =>{
   if(textAreaForNewBlog.value !== ''){
     fetch(`https://not-twitter-marcy-lab.herokuapp.com/blogs`, {
       method: "POST",
+      mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
