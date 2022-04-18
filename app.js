@@ -28,8 +28,13 @@ app.use("/blogs", blogRouter);
 
 app.get("/", async (req, res) => {
   // if the user is authenticated
-  const blogs = await blogModel.getBlogsFromDB();
+  let blogs = await blogModel.getBlogsFromDB();
   const users = await userModel.getUsersFromDB();
+  blogs = blogs.map(blog => ({...blog, created_at: String(blog.created_at).substring(0,16) + blog.created_at.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true
+  })}))
   const token = req.cookies.access_token;
   if (!token) {
     return res.render("home", {authenticated: false});
